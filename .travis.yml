@@ -1,0 +1,22 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t rajaraghav/client-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run rajaraghav/client-test npm test -- --coverage
+
+after_success:
+  - docker build -t rajaraghav/multicontainerclient ./client
+  - docker build -t rajaraghav/multicontainernginx ./nginx
+  - docker build -t rajaraghav/multicontainerserver ./server
+  - docker build -t rajaraghav/multicontainerworker ./worker
+
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+  - docker push rajaraghav/multicontainerclient
+  - docker push rajaraghav/multicontainerserver
+  - docker push rajaraghav/multicontainernginx
+  - docker push rajaraghav/multicontainerworker
