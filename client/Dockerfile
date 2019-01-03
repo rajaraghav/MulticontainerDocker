@@ -5,7 +5,7 @@ RUN npm install
 
 COPY . .
 
-CMD ["npm","build"]
+Run npm run build
 
 FROM nginx
 EXPOSE 3000
