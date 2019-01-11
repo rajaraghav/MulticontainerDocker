@@ -5,24 +5,28 @@
 			"name": "client",
 			"image": "rajaraghav/multicontainerclient",
 			"hostname": "client",
+			"memory": 128,
 			"essential": false
 		},
 		{
 			"name": "server",
 			"image": "rajaraghav/multicontainerserver",
 			"hostname": "api",
+			"memory": 128,
 			"essential": false
 		},
 		{
 			"name": "worker",
 			"image": "rajaraghav/multicontainerworker",
 			"hostname": "worker",
+			"memory": 128,
 			"essential": false
 		},
 		{
 			"name": "nginx",
 			"image": "rajaraghav/multicontainernginx",
 			"hostname": "nginx",
+			"memory": 128,
 			"essential": true,
 			"portMappings": [{ "hostPort": 80, "containerPort": 80 }],
 			"links": ["client", "server"]
