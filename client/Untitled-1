@@ -1,0 +1,3 @@
+username: multicontainer-db
+password: multicontainerdocker
+dabname:postgres
