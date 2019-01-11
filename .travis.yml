@@ -21,15 +21,15 @@ after_success:
   - docker push rajaraghav/multicontainernginx
   - docker push rajaraghav/multicontainerworker
 
-  deploy:
-    provider: elasticbeanstalk
-    region: ap-south-1
-    app: MultiDocker
-    env: MultiDocker-env
-    bucket_name: elasticbeanstalk-ap-south-1-263467945630
-    bucket_path: MultiDocker
-    on:
-      branch: master
-    access_key_id: $AWS_ACCESS_KEY
-    secret_access_key: 
-      secure: $AWS_SECRET 
+deploy:
+  provider: elasticbeanstalk
+  region: ap-south-1
+  app: MultiDocker
+  env: MultiDocker-env
+  bucket_name: elasticbeanstalk-ap-south-1-263467945630
+  bucket_path: MultiDocker
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET
