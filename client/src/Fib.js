@@ -18,7 +18,7 @@ class Fib extends Component {
 	renderSeenValues() {
 		const entries = [];
 		for (let key in this.state.values) {
-			if (key !== undefined && key !== NaN) {
+			if (key !== undefined && !isNaN(key)) {
 				entries.push(
 					<div key={key}>
 						For index {key} i calculated {this.state.values[key]}
