@@ -33,12 +33,12 @@ class Fib extends Component {
 		this.fetchValues();
 		this.fetchIndexes();
 	}
-	async fetchValues() {
+	 fetchValues = async () =>{
 		const valuesRes = await axios.get("/api/values/current");
 		const values = valuesRes.data;
 		this.setState({ values });
 	}
-	async fetchIndexes() {
+	 fetchIndexes = async ()=> {
 		const seenIndicesRes = await axios.get("/api/values/all");
 		const seenIndices = seenIndicesRes.data;
 		this.setState({ seenIndices });
